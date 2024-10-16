@@ -1,0 +1,2 @@
+msgid "Django administration"
+msgstr "Base de datos ido"

@@ -1,0 +1,14 @@
+.custom-logout-form button{
+    font-size: 12px;
+    background: none; /* Elimina el fondo del botón */
+    border: none; /* Elimina el borde del botón */
+    padding: 0; /* Elimina el relleno interno del botón */
+    cursor: pointer;
+     /* Subraya el texto del botón */
+    color: #ECF2F6; /* Cambia el color del texto del botón */
+}
+
+.custom-logout-form button:hover{
+    text-decoration: underline; /* Elimina el subrayado cuando se pasa el mouse sobre el botón */ /* Cambia el color del texto cuando se pasa el mouse sobre el botón */
+
+}
