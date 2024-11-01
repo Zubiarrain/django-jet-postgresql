@@ -32,13 +32,12 @@ SECRET_KEY = env("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env("DEBUG")
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
 
 INSTALLED_APPS = [
-    "jet.dashboard",
     "jet",
     "django.contrib.admin",
     "django.contrib.auth",
@@ -157,7 +156,7 @@ USE_TZ = True
 STATIC_ROOT = os.path.join(BASE_DIR, "public/static")
 STATIC_URL = "/public/static/"
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "public/custom_statics"),
+    os.path.join(BASE_DIR, "public/custom_static"),
 ]
 
 # Directorio de archivos multimedia (imágenes, etc.)

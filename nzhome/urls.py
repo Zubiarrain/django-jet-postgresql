@@ -22,15 +22,16 @@ from django.contrib.staticfiles.storage import staticfiles_storage
 from django.urls import include, path
 from django.views.generic.base import RedirectView
 
+from .views import admin_redirect
+
 urlpatterns = [
     path(
         "favicon.ico",
         RedirectView.as_view(url=staticfiles_storage.url("favicon.ico")),
     ),
     path("jet/", include("jet.urls", "jet")),
-    path("jet/dashboard/", include("jet.dashboard.urls", "jet-dashboard")),
     path("admin/", admin.site.urls),
-    path("", admin.site.urls),
+    path("", admin_redirect, name="home"),
 ]
 
 # SET TITLES

@@ -1,0 +1,28 @@
+fieldset.collapsed * {
+    display: none;
+}
+
+fieldset.collapsed h2, fieldset.collapsed {
+    display: block;
+}
+
+fieldset.collapsed {
+    border: 1px solid var(--hairline-color);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+fieldset.collapsed h2 {
+    background: var(--darkened-bg);
+    color: var(--body-quiet-color);
+}
+
+fieldset .collapse-toggle {
+    color: var(--header-link-color);
+}
+
+fieldset.collapsed .collapse-toggle {
+    background: transparent;
+    display: inline;
+    color: var(--link-fg);
+}
