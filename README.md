@@ -10,13 +10,37 @@ Breve descripción del proyecto, su propósito y funcionalidades principales.
 - pip
 - virtualenv
 
+## Estructura del Proyecto
+
+```
+nz-home/
+│
+├── .vscode/              # Configuraciones de Visual Studio Code
+├── locale/               # Archivos de localización
+├── logs/                 # Directorio de logs
+├── nzhome/               # Directorio principal del proyecto
+│   ├── .env              # Variables de entorno
+│   ├── .env.example      # Ejemplo de configuración
+│   └── ...
+├── public/               # Archivos estáticos públicos
+├── templates/            # Plantillas HTML
+├── typings/              # Definiciones de tipos
+├── utils/                # Utilidades y funciones auxiliares
+├── venv/                 # Entorno virtual
+├── .gitignore
+├── db.sqlite3
+├── manage.py
+├── README.md             # Este archivo
+└── requirements.txt      # Dependencias del proyecto
+```
+
 ## Configuración del Entorno de Desarrollo
 
 ### 1. Clonar el Repositorio
 
 ```bash
-git clone https://github.tu-usuario/django-jet-postgresql.git
-cd django-jet-postgresql
+mkdir nombre-de-tu-proyecto
+git clone git@github.com:Zubiarrain/django-jet-postgresql.git .
 ```
 
 ### 2. Crear Entorno Virtual
@@ -45,10 +69,16 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-### 5. Configuración de Variables de Entorno
+### 5. Configuración Inicial
 
-1. Navegar a la carpeta `nzhome`
-2. Copiar `.env.example` a `.env`
+1. Crear directorio de logs
+
+```bash
+mkdir logs
+```
+
+2. Navegar a la carpeta `nzhome`
+3. Copiar `.env.example` a `.env`
 
 ```bash
 cp .env.example .env
@@ -64,60 +94,63 @@ python3 manage.py shell
 
 Copiar la clave generada y reemplazar el valor en `.env`
 
-### 7. Crear Directorio de Logs
-
-```bash
-mkdir logs
-```
-
-### 8. Configurar Base de Datos
+### 7. Configurar Base de Datos
 
 ```bash
 python3 manage.py makemigrations
 python3 manage.py migrate
 ```
 
-### 9. Crear Superusuario
+### 8. Crear Superusuario
 
 ```bash
 python3 manage.py createsuperuser
 ```
 
-## Ejecución del Proyecto
+Sigue las instrucciones para:
+
+- Ingresar nombre de usuario
+- Ingresar dirección de correo electrónico (opcional)
+- Crear contraseña
+- Confirmar contraseña
+
+### 9. Crear Nueva Aplicación Django
+
+```bash
+python3 manage.py startapp nombre_de_tu_app
+```
+
+Pasos adicionales después de crear la app:
+
+1. Añadir la app al `INSTALLED_APPS` en `settings.py`
+
+```python
+INSTALLED_APPS = [
+    ...
+    'nombre_de_tu_app',
+]
+```
+
+2. Crear modelos en `models.py`
+3. Crear migraciones
+
+```bash
+python3 manage.py makemigrations nombre_de_tu_app
+python3 manage.py migrate
+```
+
+### 10. Ejecución del Proyecto
 
 ```bash
 python3 manage.py runserver
 ```
 
-## Estructura del Proyecto
-
-```
-nz-home/
-│
-├── .vscode/
-├── locale/
-├── logs/                 # Directorio de logs
-├── nzhome/               # Directorio principal del proyecto
-│   ├── .env              # Variables de entorno
-│   ├── .env.example      # Ejemplo de configuración
-│   └── ...
-├── public/
-├── templates/
-├── typings/
-├── utils/
-├── venv/                 # Entorno virtual
-├── .gitignore
-├── db.sqlite3
-├── manage.py
-├── README.md             # Este archivo
-└── requirements.txt      # Dependencias del proyecto
-```
-
 ## Buenas Prácticas
 
 - Mantén el `.env` fuera del control de versiones
-- Actualiza regularmente las dependencias
-- Usa `pip freeze > requirements.txt` para actualizar dependencias
+- Usa un nombre descriptivo para tu nueva app
+- Crea migraciones cada vez que modifiques modelos
+- Mantén la documentación actualizada
 
 ## Troubleshooting
 
@@ -128,6 +161,17 @@ nz-home/
 - Para reinstalar dependencias:
   ```bash
   pip install -r requirements.txt --upgrade
+  ```
+
+## Comandos Útiles
+
+- Listar todas las migraciones:
+  ```bash
+  python3 manage.py showmigrations
+  ```
+- Crear migraciones para una app específica:
+  ```bash
+  python3 manage.py makemigrations nombre_de_tu_app
   ```
 
 ## Contacto
