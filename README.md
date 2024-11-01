@@ -94,14 +94,23 @@ python3 manage.py runserver
 ```
 nz-home/
 │
-├── venv/                 # Entorno virtual
+├── .vscode/
+├── locale/
+├── logs/                 # Directorio de logs
 ├── nzhome/               # Directorio principal del proyecto
 │   ├── .env              # Variables de entorno
 │   ├── .env.example      # Ejemplo de configuración
 │   └── ...
-├── logs/                 # Directorio de logs
-├── requirements.txt      # Dependencias del proyecto
-└── README.md             # Este archivo
+├── public/
+├── templates/
+├── typings/
+├── utils/
+├── venv/                 # Entorno virtual
+├── .gitignore
+├── db.sqlite3
+├── manage.py
+├── README.md             # Este archivo
+└── requirements.txt      # Dependencias del proyecto
 ```
 
 ## Buenas Prácticas
